@@ -2,7 +2,7 @@ import { selector } from 'recoil';
 import { listPostState } from '@/atoms';
 
 export const postsState = selector({
-    key: 'postsStatessh',
+    key: 'postsStates',
     get: (props) => {
         const number = props.get(listPostState);
         return number + 1;
