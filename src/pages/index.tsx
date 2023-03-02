@@ -1,14 +1,30 @@
+import { listPostState } from '@/atoms';
+import { postsState } from '@/recoilselector/selector';
 import { NextPage } from 'next';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiBook, FiCrop } from 'react-icons/fi';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export interface HomeProps {}
 
 export default function Home() {
+    const [posts, setListPosts] = useRecoilState(listPostState);
+    const numberValue = useRecoilValue(postsState);
+    const setNumberState = useSetRecoilState(postsState);
+
+    const handlerOnClick = (): void => {
+        // console.log(numberValue);
+        // setListPosts(posts + 1);
+    };
+
+    const handlerReset = () => {
+        setNumberState(numberValue + 1);
+    };
+
     return (
         <div>
             <div className="relative w-full h-[600px] max-h-[600px]">
@@ -31,6 +47,13 @@ export default function Home() {
             </div>
             <div className="container xl:max-w-[1200px] lg:max-w-[984px] px-3 md:px-4 mt-4">
                 <h3 className="font-semibold text-center my-3">Which page do you want to move to ?</h3>
+                <button
+                    className="px-2 py-3 bg-slate-200 border-spacing-2 border-2 border-solid rounded-lg shadow-md"
+                    onClick={handlerReset}
+                >
+                    Click me!
+                </button>
+                <p className="mt-5 ml-8 font-semibold">{numberValue}</p>
                 <div className="flex items-center justify-center flex-wrap">
                     <div>
                         <Link
