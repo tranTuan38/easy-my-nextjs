@@ -1,5 +1,5 @@
 import { getPosts } from '@/request';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -77,7 +77,7 @@ export default function Post({ postData }: PostProps) {
     );
 }
 
-export const getStaticProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const data: DataProps | undefined = await getPosts(100);
 
     return {
