@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <div>
             <div className="relative w-full h-[600px] max-h-[600px]">
-                this is branch main
+                <h1>Helloooo branch dev v2</h1>
                 {/* <Image
                     alt="anh-nen"
                     src="/bg-img.jpg"

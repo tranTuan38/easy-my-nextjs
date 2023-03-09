@@ -38,6 +38,7 @@ export default function Post({ postData }: PostProps) {
     return (
         <>
             <div className="container xl:max-w-[1200px] mt-6 lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-6 lg:max-w-[984px] px-3 md:px-4">
+                đây là dev
                 {currentItems.map((item) => {
                     return (
                         <div key={item.id} className="shadow-lg mb-6 xl:mb-0 bg-slate-300 rounded-2xl p-4">
